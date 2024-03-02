@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/credit_card/credit_card.dart';
 
 class CreditCardView extends StatefulWidget {
@@ -9,7 +10,6 @@ class CreditCardView extends StatefulWidget {
 }
 
 class _CreditCardViewState extends State<CreditCardView> {
-  double value = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,16 +23,13 @@ class _CreditCardViewState extends State<CreditCardView> {
               'Credit card',
               style: TextStyle(color: Colors.white),
             ),
-            CreditCardWidget(
-              value: value,
-            ),
-            Slider(
-              value: value,
-              onChanged: (newValue) {
-                setState(() {
-                  value = newValue;
-                });
-              },
+            const CreditCardWidget(),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () => context
+                  .read<CreditCardBloc>()
+                  .add(const CreditCardEvent.cardAnimated()),
+              child: const Text('Animate'),
             ),
           ],
         ),

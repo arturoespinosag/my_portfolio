@@ -7,8 +7,21 @@ part 'credit_card_state.dart';
 
 class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
   CreditCardBloc() : super(const CreditCardState()) {
-    on<CreditCardEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<_CardAnimated>(_onCardAnimated);
+  }
+
+  void _onCardAnimated(_CardAnimated event, Emitter<CreditCardState> emit) {
+    emit(
+      state.copyWith(
+        animateCard: true,
+      ),
+    );
+    emit(
+      state.copyWith(
+        animateCard: false,
+        cardSide:
+            state.cardSide == CardSide.front ? CardSide.back : CardSide.front,
+      ),
+    );
   }
 }
