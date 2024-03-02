@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/counter/counter.dart';
+import 'package:portfolio/credit_card/credit_card.dart';
 import 'package:portfolio/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -10,13 +10,14 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
         ),
         useMaterial3: true,
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
+      debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const CreditCardPage(),
     );
   }
 }
