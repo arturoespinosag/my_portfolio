@@ -4,10 +4,33 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants.dart';
 import 'package:portfolio/gen/assets.gen.dart';
 
-class CreditCardWidget extends StatelessWidget {
+class CreditCardWidget extends StatefulWidget {
   const CreditCardWidget({required this.value, super.key});
 
   final double value;
+
+  @override
+  State<CreditCardWidget> createState() => _CreditCardWidgetState();
+}
+
+class _CreditCardWidgetState extends State<CreditCardWidget>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+  late Tween<double> _tween;
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 5000),
+    )..forward();
+    _tween = Tween(begin: 0, end: 1);
+    _animation = _tween.animate(_controller)
+      ..addListener(() {
+        setState(() {});
+      });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +38,11 @@ class CreditCardWidget extends StatelessWidget {
       alignment: Alignment.center,
       transform: Matrix4.identity()
         ..setEntry(3, 2, 0.001)
-        ..rotateY(value < 0.5 ? pi * value : pi * (1 + value)),
+        ..rotateY(
+          _animation.value < 0.5
+              ? pi * _animation.value
+              : pi * (1 + _animation.value),
+        ),
       child: Card(
         elevation: 3,
         shape: RoundedRectangleBorder(
@@ -35,7 +62,9 @@ class CreditCardWidget extends StatelessWidget {
               ],
             ),
           ),
-          child: value < 0.5 ? const CreditCardFront() : const CreditCardBack(),
+          child: _animation.value < 0.5
+              ? const CreditCardFront()
+              : const CreditCardBack(),
         ),
       ),
     );
