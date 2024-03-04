@@ -13,7 +13,7 @@ class _CreditCardViewState extends State<CreditCardView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.white,
       appBar: AppBar(title: const Text('Credit card')),
       body: Center(
         child: Column(

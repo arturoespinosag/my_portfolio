@@ -16,8 +16,16 @@ class $AssetsPngsGen {
   AssetGenImage get cardChip =>
       const AssetGenImage('assets/pngs/card-chip.png');
 
+  /// File path: assets/pngs/visa-logo.png
+  AssetGenImage get visaLogo =>
+      const AssetGenImage('assets/pngs/visa-logo.png');
+
+  /// File path: assets/pngs/visa-white.png
+  AssetGenImage get visaWhite =>
+      const AssetGenImage('assets/pngs/visa-white.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [cardChip];
+  List<AssetGenImage> get values => [cardChip, visaLogo, visaWhite];
 }
 
 class Assets {

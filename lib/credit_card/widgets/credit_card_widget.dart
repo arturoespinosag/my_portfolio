@@ -55,7 +55,10 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
                     : pi * (1 + _animation.value),
               ),
             child: Card(
-              elevation: 3,
+              elevation: 5,
+              shadowColor: _animation.value == 0 || _animation.value == 1
+                  ? Colors.black
+                  : null,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -64,7 +67,6 @@ class _CreditCardWidgetState extends State<CreditCardWidget>
               child: Container(
                 height: 200,
                 width: 318.5,
-                padding: const EdgeInsets.all(25),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -90,26 +92,58 @@ class CreditCardFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Assets.pngs.cardChip.image(width: 50),
-        const SizedBox(
-          height: 10,
-        ),
-        const Text(
-          '0000 0000 0000 0000',
-          style: kTextStyle,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          'Arturo Espinosa',
-          style: kTextStyle.copyWith(fontWeight: FontWeight.normal),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(25),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              'BANK NAME',
+              style: kMetallicTextStyle.copyWith(shadows: []),
+            ),
+          ),
+          Assets.pngs.cardChip.image(width: 40),
+          const Text(
+            '0000 0000 0000 0000',
+            style: kMetallicTextStyle,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'EXPIRE\nDATE',
+                style: kMetallicTextStyle.copyWith(fontSize: 5),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                '00/00',
+                style: kMetallicTextStyle.copyWith(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Arturo Espinosa',
+                style: kMetallicTextStyle.copyWith(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15,
+                ),
+              ),
+              Assets.pngs.visaWhite.image(height: 26),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -119,15 +153,59 @@ class CreditCardBack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.end,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Back of the card',
-          style: kTextStyle,
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25).copyWith(top: 8),
+          child: Text(
+            'For customer service, call +123-456-789 ',
+            style: normalTextStyle.copyWith(
+              fontSize: 9,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
-        SizedBox(
-          height: 10,
+        const SizedBox(
+          height: 8,
+        ),
+        const SizedBox(
+          height: 50,
+          width: double.infinity,
+          child: ColoredBox(
+            color: Colors.black,
+          ),
+        ),
+        const SizedBox(height: 8),
+        Container(
+          color: Colors.white,
+          margin: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          height: 30,
+          width: double.infinity,
+          child: const Align(
+            alignment: Alignment.centerRight,
+            child: Text('000'),
+          ),
+        ),
+        const SizedBox(height: 10),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: Column(
+            children: [
+              Text(
+                loremIpsum,
+                maxLines: 3,
+                style: normalTextStyle.copyWith(fontSize: 5),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                loremIpsum,
+                maxLines: 3,
+                style: normalTextStyle.copyWith(fontSize: 5),
+              ),
+            ],
+          ),
         ),
       ],
     );
