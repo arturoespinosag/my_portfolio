@@ -1,4 +1,4 @@
-package com.mx.arturo.espinosag.portfolio
+package com.mx.arturoespinosag.portfolio
 
 import io.flutter.embedding.android.FlutterActivity
 
