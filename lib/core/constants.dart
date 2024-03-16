@@ -26,3 +26,18 @@ const loremIpsum =
     'reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla'
     ' pariatur. Excepteur sint occaecat cupidatat non proident, sunt in'
     ' culpa qui officia deserunt mollit anim id est laborum.';
+
+const months = <String>[
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
