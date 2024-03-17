@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/constants.dart';
 
@@ -35,6 +37,7 @@ class _CreditCardViewState extends State<CreditCardView> {
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     final years = List.generate(5, (index) => 2024 + index);
+    final hPadding = (kIsWeb ? size.width * 0.22 : 25).toDouble();
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.5),
       appBar: AppBar(title: const Text('Credit card')),
@@ -44,8 +47,8 @@ class _CreditCardViewState extends State<CreditCardView> {
             child: Container(
               margin: EdgeInsets.only(
                 top: size.height * 0.14,
-                left: size.width * 0.18,
-                right: size.width * 0.18,
+                left: hPadding,
+                right: hPadding,
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -63,62 +66,77 @@ class _CreditCardViewState extends State<CreditCardView> {
             ),
           ),
           Positioned.fill(
-            child: Column(
-              children: [
-                const CreditCardWidget(),
-                Container(
-                  padding: EdgeInsets.only(
-                    top: 20,
-                    left: size.width * 0.22,
-                    right: size.width * 0.22,
-                    bottom: 20,
-                  ),
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('Card number'),
-                      const CustomTextFormField(),
-                      const SizedBox(height: 20),
-                      const Text('Account holder'),
-                      const CustomTextFormField(),
-                      const SizedBox(height: 20),
-                      Row(
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text('Expiration date'),
-                                Row(
-                                  children: [
-                                    const CustomDropDown(items: months),
-                                    const SizedBox(width: 8),
-                                    CustomDropDown(items: years),
-                                  ],
-                                ),
-                              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const CreditCardWidget(),
+                  Container(
+                    padding: EdgeInsets.only(
+                      top: 20,
+                      left: hPadding + 20,
+                      right: hPadding + 20,
+                      bottom: 20,
+                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Card number'),
+                        CustomTextFormField(
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                          ],
+                          keyboardType: TextInputType.number,
+                          maxLength: 16,
+                        ),
+                        const SizedBox(height: 20),
+                        const Text('Account holder'),
+                        const CustomTextFormField(),
+                        const SizedBox(height: 20),
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: kIsWeb ? 2 : 4,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text('Expiration date'),
+                                  Row(
+                                    children: [
+                                      const CustomDropDown(items: months),
+                                      const SizedBox(width: 8),
+                                      CustomDropDown(items: years),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text('CVV'),
-                                CustomTextFormField(
-                                  focusNode: _cvvFocusNode,
-                                ),
-                              ],
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text('CVV'),
+                                  CustomTextFormField(
+                                    focusNode: _cvvFocusNode,
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.allow(
+                                        RegExp('[0-9]'),
+                                      ),
+                                    ],
+                                    maxLength: 3,
+                                    keyboardType: TextInputType.number,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -128,9 +146,18 @@ class _CreditCardViewState extends State<CreditCardView> {
 }
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({super.key, this.focusNode});
+  const CustomTextFormField({
+    super.key,
+    this.focusNode,
+    this.inputFormatters,
+    this.keyboardType,
+    this.maxLength,
+  });
 
   final FocusNode? focusNode;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -140,6 +167,16 @@ class CustomTextFormField extends StatelessWidget {
       shadowColor: Colors.black45,
       child: TextFormField(
         focusNode: focusNode,
+        keyboardType: keyboardType,
+        maxLength: maxLength,
+        buildCounter: (
+          _, {
+          required currentLength,
+          required isFocused,
+          required maxLength,
+        }) =>
+            null,
+        inputFormatters: inputFormatters,
         decoration: const InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.blue),
