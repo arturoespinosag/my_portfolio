@@ -19,32 +19,38 @@ mixin _$CreditCardEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cardAnimated,
+    required TResult Function(SelectedField? field) fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cardAnimated,
+    TResult? Function(SelectedField? field)? fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cardAnimated,
+    TResult Function(SelectedField? field)? fieldChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CardAnimated value) cardAnimated,
+    required TResult Function(_FieldChanged value) fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CardAnimated value)? cardAnimated,
+    TResult? Function(_FieldChanged value)? fieldChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CardAnimated value)? cardAnimated,
+    TResult Function(_FieldChanged value)? fieldChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() cardAnimated,
+    required TResult Function(SelectedField? field) fieldChanged,
   }) {
     return cardAnimated();
   }
@@ -115,6 +122,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? cardAnimated,
+    TResult? Function(SelectedField? field)? fieldChanged,
   }) {
     return cardAnimated?.call();
   }
@@ -123,6 +131,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? cardAnimated,
+    TResult Function(SelectedField? field)? fieldChanged,
     required TResult orElse(),
   }) {
     if (cardAnimated != null) {
@@ -135,6 +144,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CardAnimated value) cardAnimated,
+    required TResult Function(_FieldChanged value) fieldChanged,
   }) {
     return cardAnimated(this);
   }
@@ -143,6 +153,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CardAnimated value)? cardAnimated,
+    TResult? Function(_FieldChanged value)? fieldChanged,
   }) {
     return cardAnimated?.call(this);
   }
@@ -151,6 +162,7 @@ class _$CardAnimatedImpl implements _CardAnimated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CardAnimated value)? cardAnimated,
+    TResult Function(_FieldChanged value)? fieldChanged,
     required TResult orElse(),
   }) {
     if (cardAnimated != null) {
@@ -165,9 +177,144 @@ abstract class _CardAnimated implements CreditCardEvent {
 }
 
 /// @nodoc
+abstract class _$$FieldChangedImplCopyWith<$Res> {
+  factory _$$FieldChangedImplCopyWith(
+          _$FieldChangedImpl value, $Res Function(_$FieldChangedImpl) then) =
+      __$$FieldChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SelectedField? field});
+}
+
+/// @nodoc
+class __$$FieldChangedImplCopyWithImpl<$Res>
+    extends _$CreditCardEventCopyWithImpl<$Res, _$FieldChangedImpl>
+    implements _$$FieldChangedImplCopyWith<$Res> {
+  __$$FieldChangedImplCopyWithImpl(
+      _$FieldChangedImpl _value, $Res Function(_$FieldChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? field = freezed,
+  }) {
+    return _then(_$FieldChangedImpl(
+      field: freezed == field
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as SelectedField?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FieldChangedImpl implements _FieldChanged {
+  const _$FieldChangedImpl({this.field});
+
+  @override
+  final SelectedField? field;
+
+  @override
+  String toString() {
+    return 'CreditCardEvent.fieldChanged(field: $field)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FieldChangedImpl &&
+            (identical(other.field, field) || other.field == field));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, field);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FieldChangedImplCopyWith<_$FieldChangedImpl> get copyWith =>
+      __$$FieldChangedImplCopyWithImpl<_$FieldChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cardAnimated,
+    required TResult Function(SelectedField? field) fieldChanged,
+  }) {
+    return fieldChanged(field);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cardAnimated,
+    TResult? Function(SelectedField? field)? fieldChanged,
+  }) {
+    return fieldChanged?.call(field);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cardAnimated,
+    TResult Function(SelectedField? field)? fieldChanged,
+    required TResult orElse(),
+  }) {
+    if (fieldChanged != null) {
+      return fieldChanged(field);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CardAnimated value) cardAnimated,
+    required TResult Function(_FieldChanged value) fieldChanged,
+  }) {
+    return fieldChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CardAnimated value)? cardAnimated,
+    TResult? Function(_FieldChanged value)? fieldChanged,
+  }) {
+    return fieldChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CardAnimated value)? cardAnimated,
+    TResult Function(_FieldChanged value)? fieldChanged,
+    required TResult orElse(),
+  }) {
+    if (fieldChanged != null) {
+      return fieldChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FieldChanged implements CreditCardEvent {
+  const factory _FieldChanged({final SelectedField? field}) =
+      _$FieldChangedImpl;
+
+  SelectedField? get field;
+  @JsonKey(ignore: true)
+  _$$FieldChangedImplCopyWith<_$FieldChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CreditCardState {
   bool get animateCard => throw _privateConstructorUsedError;
   CardSide get cardSide => throw _privateConstructorUsedError;
+  SelectedField? get selectedField => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreditCardStateCopyWith<CreditCardState> get copyWith =>
@@ -180,7 +327,8 @@ abstract class $CreditCardStateCopyWith<$Res> {
           CreditCardState value, $Res Function(CreditCardState) then) =
       _$CreditCardStateCopyWithImpl<$Res, CreditCardState>;
   @useResult
-  $Res call({bool animateCard, CardSide cardSide});
+  $Res call(
+      {bool animateCard, CardSide cardSide, SelectedField? selectedField});
 }
 
 /// @nodoc
@@ -198,6 +346,7 @@ class _$CreditCardStateCopyWithImpl<$Res, $Val extends CreditCardState>
   $Res call({
     Object? animateCard = null,
     Object? cardSide = null,
+    Object? selectedField = freezed,
   }) {
     return _then(_value.copyWith(
       animateCard: null == animateCard
@@ -208,6 +357,10 @@ class _$CreditCardStateCopyWithImpl<$Res, $Val extends CreditCardState>
           ? _value.cardSide
           : cardSide // ignore: cast_nullable_to_non_nullable
               as CardSide,
+      selectedField: freezed == selectedField
+          ? _value.selectedField
+          : selectedField // ignore: cast_nullable_to_non_nullable
+              as SelectedField?,
     ) as $Val);
   }
 }
@@ -220,7 +373,8 @@ abstract class _$$CreditCardStateImplCopyWith<$Res>
       __$$CreditCardStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool animateCard, CardSide cardSide});
+  $Res call(
+      {bool animateCard, CardSide cardSide, SelectedField? selectedField});
 }
 
 /// @nodoc
@@ -236,6 +390,7 @@ class __$$CreditCardStateImplCopyWithImpl<$Res>
   $Res call({
     Object? animateCard = null,
     Object? cardSide = null,
+    Object? selectedField = freezed,
   }) {
     return _then(_$CreditCardStateImpl(
       animateCard: null == animateCard
@@ -246,6 +401,10 @@ class __$$CreditCardStateImplCopyWithImpl<$Res>
           ? _value.cardSide
           : cardSide // ignore: cast_nullable_to_non_nullable
               as CardSide,
+      selectedField: freezed == selectedField
+          ? _value.selectedField
+          : selectedField // ignore: cast_nullable_to_non_nullable
+              as SelectedField?,
     ));
   }
 }
@@ -254,7 +413,9 @@ class __$$CreditCardStateImplCopyWithImpl<$Res>
 
 class _$CreditCardStateImpl implements _CreditCardState {
   const _$CreditCardStateImpl(
-      {this.animateCard = false, this.cardSide = CardSide.front});
+      {this.animateCard = false,
+      this.cardSide = CardSide.front,
+      this.selectedField});
 
   @override
   @JsonKey()
@@ -262,10 +423,12 @@ class _$CreditCardStateImpl implements _CreditCardState {
   @override
   @JsonKey()
   final CardSide cardSide;
+  @override
+  final SelectedField? selectedField;
 
   @override
   String toString() {
-    return 'CreditCardState(animateCard: $animateCard, cardSide: $cardSide)';
+    return 'CreditCardState(animateCard: $animateCard, cardSide: $cardSide, selectedField: $selectedField)';
   }
 
   @override
@@ -276,11 +439,14 @@ class _$CreditCardStateImpl implements _CreditCardState {
             (identical(other.animateCard, animateCard) ||
                 other.animateCard == animateCard) &&
             (identical(other.cardSide, cardSide) ||
-                other.cardSide == cardSide));
+                other.cardSide == cardSide) &&
+            (identical(other.selectedField, selectedField) ||
+                other.selectedField == selectedField));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, animateCard, cardSide);
+  int get hashCode =>
+      Object.hash(runtimeType, animateCard, cardSide, selectedField);
 
   @JsonKey(ignore: true)
   @override
@@ -293,12 +459,15 @@ class _$CreditCardStateImpl implements _CreditCardState {
 abstract class _CreditCardState implements CreditCardState {
   const factory _CreditCardState(
       {final bool animateCard,
-      final CardSide cardSide}) = _$CreditCardStateImpl;
+      final CardSide cardSide,
+      final SelectedField? selectedField}) = _$CreditCardStateImpl;
 
   @override
   bool get animateCard;
   @override
   CardSide get cardSide;
+  @override
+  SelectedField? get selectedField;
   @override
   @JsonKey(ignore: true)
   _$$CreditCardStateImplCopyWith<_$CreditCardStateImpl> get copyWith =>

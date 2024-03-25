@@ -8,6 +8,7 @@ part 'credit_card_state.dart';
 class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
   CreditCardBloc() : super(const CreditCardState()) {
     on<_CardAnimated>(_onCardAnimated);
+    on<_FieldChanged>(_onFieldChanged);
   }
 
   void _onCardAnimated(_CardAnimated event, Emitter<CreditCardState> emit) {
@@ -21,6 +22,14 @@ class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
         animateCard: false,
         cardSide:
             state.cardSide == CardSide.front ? CardSide.back : CardSide.front,
+      ),
+    );
+  }
+
+  void _onFieldChanged(_FieldChanged event, Emitter<CreditCardState> emit) {
+    emit(
+      state.copyWith(
+        selectedField: event.field,
       ),
     );
   }

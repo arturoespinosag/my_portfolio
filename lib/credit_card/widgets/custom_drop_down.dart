@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomDropDown<T> extends StatelessWidget {
-  const CustomDropDown({required this.items, super.key});
+  const CustomDropDown({required this.items, this.focusNode, super.key});
 
   final List<T> items;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +14,7 @@ class CustomDropDown<T> extends StatelessWidget {
         elevation: 10,
         shadowColor: Colors.black45,
         child: DropdownButtonFormField<T>(
+          focusNode: focusNode,
           decoration: const InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black45),

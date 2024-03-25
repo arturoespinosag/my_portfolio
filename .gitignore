@@ -10,6 +10,13 @@
 .svn/
 migrate_working_dir/
 
+app.*.map.json
+*.g.dart
+*.freezed.dart
+*.log
+*.config.dart
+lib/l10n/gen_l10n
+
 # IntelliJ related
 *.iml
 *.ipr

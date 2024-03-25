@@ -15,23 +15,64 @@ class CreditCardView extends StatefulWidget {
 
 class _CreditCardViewState extends State<CreditCardView> {
   late FocusNode _cvvFocusNode;
+  late FocusNode _cardFocusNode;
+  late FocusNode _nameFocusNode;
+  late FocusNode _expireDateFocusNode;
 
   @override
   void initState() {
-    _cvvFocusNode = FocusNode()..addListener(_onFocusChange);
+    _cvvFocusNode = FocusNode()..addListener(_onCvvFocusChange);
+    _cardFocusNode = FocusNode()..addListener(_onCardFocusChange);
+    _nameFocusNode = FocusNode()..addListener(_onNameFocusChange);
+    _expireDateFocusNode = FocusNode()..addListener(_onExpireDateFocusChange);
     super.initState();
   }
 
   @override
   void dispose() {
     _cvvFocusNode
-      ..removeListener(_onFocusChange)
+      ..removeListener(_onCvvFocusChange)
       ..dispose();
+
     super.dispose();
   }
 
-  void _onFocusChange() =>
-      context.read<CreditCardBloc>().add(const CreditCardEvent.cardAnimated());
+  void _onCvvFocusChange() {
+    if (_cvvFocusNode.hasFocus) {
+      context.read<CreditCardBloc>().add(const CreditCardEvent.fieldChanged());
+    }
+    context.read<CreditCardBloc>().add(const CreditCardEvent.cardAnimated());
+  }
+
+  void _onNameFocusChange() {
+    if (_nameFocusNode.hasFocus) {
+      context.read<CreditCardBloc>().add(
+            const CreditCardEvent.fieldChanged(
+              field: SelectedField.customerName,
+            ),
+          );
+    }
+  }
+
+  void _onCardFocusChange() {
+    if (_cardFocusNode.hasFocus) {
+      context.read<CreditCardBloc>().add(
+            const CreditCardEvent.fieldChanged(
+              field: SelectedField.cardNumber,
+            ),
+          );
+    }
+  }
+
+  void _onExpireDateFocusChange() {
+    if (_expireDateFocusNode.hasFocus) {
+      context.read<CreditCardBloc>().add(
+            const CreditCardEvent.fieldChanged(
+              field: SelectedField.expireDate,
+            ),
+          );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,6 +124,7 @@ class _CreditCardViewState extends State<CreditCardView> {
                       children: [
                         const Text('Card number'),
                         CustomTextFormField(
+                          focusNode: _cardFocusNode,
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                           ],
@@ -91,7 +133,9 @@ class _CreditCardViewState extends State<CreditCardView> {
                         ),
                         const SizedBox(height: 20),
                         const Text('Account holder'),
-                        const CustomTextFormField(),
+                        CustomTextFormField(
+                          focusNode: _nameFocusNode,
+                        ),
                         const SizedBox(height: 20),
                         Row(
                           children: [
@@ -103,9 +147,15 @@ class _CreditCardViewState extends State<CreditCardView> {
                                   const Text('Expiration date'),
                                   Row(
                                     children: [
-                                      const CustomDropDown(items: months),
+                                      CustomDropDown(
+                                        items: months,
+                                        focusNode: _expireDateFocusNode,
+                                      ),
                                       const SizedBox(width: 8),
-                                      CustomDropDown(items: years),
+                                      CustomDropDown(
+                                        items: years,
+                                        focusNode: _expireDateFocusNode,
+                                      ),
                                     ],
                                   ),
                                 ],
