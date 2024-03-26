@@ -13,21 +13,6 @@ class DecoratedTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black.withOpacity(isSelected ? 0.2 : 0),
-        borderRadius: BorderRadius.circular(8),
-        border: isSelected
-            ? Border.all(
-                color: Colors.white,
-              )
-            : null,
-      ),
-      padding: EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: verticalPadding,
-      ),
-      child: child,
-    );
+    return child;
   }
 }
