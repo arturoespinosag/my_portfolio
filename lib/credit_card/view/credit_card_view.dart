@@ -149,6 +149,11 @@ class _CreditCardViewState extends State<CreditCardView> {
                         const Text('Account holder'),
                         CustomTextFormField(
                           focusNode: _nameFocusNode,
+                          onChanged: (name) =>
+                              context.read<CreditCardBloc>().add(
+                                    CreditCardEvent.nameChanged(value: name),
+                                  ),
+                          maxLength: 21,
                         ),
                         const SizedBox(height: 20),
                         Row(
@@ -198,6 +203,12 @@ class _CreditCardViewState extends State<CreditCardView> {
                                   const Text('CVV'),
                                   CustomTextFormField(
                                     focusNode: _cvvFocusNode,
+                                    onChanged: (cvv) =>
+                                        context.read<CreditCardBloc>().add(
+                                              CreditCardEvent.cvvNumberChanged(
+                                                value: cvv,
+                                              ),
+                                            ),
                                     inputFormatters: [
                                       FilteringTextInputFormatter.allow(
                                         RegExp('[0-9]'),

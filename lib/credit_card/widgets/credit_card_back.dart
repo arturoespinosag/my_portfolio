@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/constants.dart';
+import 'package:portfolio/credit_card/bloc/credit_card_bloc.dart';
+import 'package:portfolio/credit_card/credit_card.dart';
 
 class CreditCardBack extends StatelessWidget {
   const CreditCardBack({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var oldCvvNumber = '000';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,9 +40,30 @@ class CreditCardBack extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           height: 30,
           width: double.infinity,
-          child: const Align(
-            alignment: Alignment.centerRight,
-            child: Text('000'),
+          child: BlocBuilder<CreditCardBloc, CreditCardState>(
+            buildWhen: (p, c) {
+              if (p.cvvNumber != c.cvvNumber) {
+                oldCvvNumber = p.cvvNumber;
+              }
+              return p.cvvNumber != c.cvvNumber;
+            },
+            builder: (context, state) {
+              final cvvNumber = state.cvvNumber;
+              return Align(
+                alignment: Alignment.centerRight,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: List.generate(
+                    cvvNumber.length,
+                    (index) => AnimatedLetter(
+                      value: cvvNumber[index],
+                      oldValue: oldCvvNumber[index],
+                      textStyle: null,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
         ),
         const SizedBox(height: 10),

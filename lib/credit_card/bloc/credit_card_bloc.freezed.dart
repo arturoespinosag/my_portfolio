@@ -23,6 +23,8 @@ mixin _$CreditCardEvent {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +34,8 @@ mixin _$CreditCardEvent {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +45,8 @@ mixin _$CreditCardEvent {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +59,8 @@ mixin _$CreditCardEvent {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +70,8 @@ mixin _$CreditCardEvent {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +81,8 @@ mixin _$CreditCardEvent {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +149,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) {
     return cardAnimated();
   }
@@ -149,6 +163,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) {
     return cardAnimated?.call();
   }
@@ -161,6 +177,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (cardAnimated != null) {
@@ -179,6 +197,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) {
     return cardAnimated(this);
   }
@@ -191,6 +211,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) {
     return cardAnimated?.call(this);
   }
@@ -203,6 +225,8 @@ class _$CardAnimatedImpl implements _CardAnimated {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (cardAnimated != null) {
@@ -285,6 +309,8 @@ class _$FieldChangedImpl implements _FieldChanged {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) {
     return fieldChanged(field);
   }
@@ -297,6 +323,8 @@ class _$FieldChangedImpl implements _FieldChanged {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) {
     return fieldChanged?.call(field);
   }
@@ -309,6 +337,8 @@ class _$FieldChangedImpl implements _FieldChanged {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (fieldChanged != null) {
@@ -327,6 +357,8 @@ class _$FieldChangedImpl implements _FieldChanged {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) {
     return fieldChanged(this);
   }
@@ -339,6 +371,8 @@ class _$FieldChangedImpl implements _FieldChanged {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) {
     return fieldChanged?.call(this);
   }
@@ -351,6 +385,8 @@ class _$FieldChangedImpl implements _FieldChanged {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (fieldChanged != null) {
@@ -440,6 +476,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) {
     return creditCardChanged(value);
   }
@@ -452,6 +490,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) {
     return creditCardChanged?.call(value);
   }
@@ -464,6 +504,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (creditCardChanged != null) {
@@ -482,6 +524,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) {
     return creditCardChanged(this);
   }
@@ -494,6 +538,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) {
     return creditCardChanged?.call(this);
   }
@@ -506,6 +552,8 @@ class _$CreditCardChangedImpl implements _CreditCardChanged {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (creditCardChanged != null) {
@@ -597,6 +645,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) {
     return expirationMonthChanged(value);
   }
@@ -609,6 +659,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) {
     return expirationMonthChanged?.call(value);
   }
@@ -621,6 +673,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (expirationMonthChanged != null) {
@@ -639,6 +693,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) {
     return expirationMonthChanged(this);
   }
@@ -651,6 +707,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) {
     return expirationMonthChanged?.call(this);
   }
@@ -663,6 +721,8 @@ class _$ExpirationMonthChangedImpl implements _ExpirationMonthChanged {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (expirationMonthChanged != null) {
@@ -753,6 +813,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
     required TResult Function(String value) creditCardChanged,
     required TResult Function(String value) expirationMonthChanged,
     required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
   }) {
     return expirationYearChanged(value);
   }
@@ -765,6 +827,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
     TResult? Function(String value)? creditCardChanged,
     TResult? Function(String value)? expirationMonthChanged,
     TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
   }) {
     return expirationYearChanged?.call(value);
   }
@@ -777,6 +841,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
     TResult Function(String value)? creditCardChanged,
     TResult Function(String value)? expirationMonthChanged,
     TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (expirationYearChanged != null) {
@@ -795,6 +861,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
         expirationMonthChanged,
     required TResult Function(_ExpirationYearChanged value)
         expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
   }) {
     return expirationYearChanged(this);
   }
@@ -807,6 +875,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
     TResult? Function(_CreditCardChanged value)? creditCardChanged,
     TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
   }) {
     return expirationYearChanged?.call(this);
   }
@@ -819,6 +889,8 @@ class _$ExpirationYearChangedImpl implements _ExpirationYearChanged {
     TResult Function(_CreditCardChanged value)? creditCardChanged,
     TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
     TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
     required TResult orElse(),
   }) {
     if (expirationYearChanged != null) {
@@ -839,6 +911,338 @@ abstract class _ExpirationYearChanged implements CreditCardEvent {
 }
 
 /// @nodoc
+abstract class _$$NameChangedImplCopyWith<$Res> {
+  factory _$$NameChangedImplCopyWith(
+          _$NameChangedImpl value, $Res Function(_$NameChangedImpl) then) =
+      __$$NameChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$NameChangedImplCopyWithImpl<$Res>
+    extends _$CreditCardEventCopyWithImpl<$Res, _$NameChangedImpl>
+    implements _$$NameChangedImplCopyWith<$Res> {
+  __$$NameChangedImplCopyWithImpl(
+      _$NameChangedImpl _value, $Res Function(_$NameChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$NameChangedImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NameChangedImpl implements _NameChanged {
+  const _$NameChangedImpl({required this.value});
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'CreditCardEvent.nameChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NameChangedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      __$$NameChangedImplCopyWithImpl<_$NameChangedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cardAnimated,
+    required TResult Function(SelectedField? field) fieldChanged,
+    required TResult Function(String value) creditCardChanged,
+    required TResult Function(String value) expirationMonthChanged,
+    required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
+  }) {
+    return nameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cardAnimated,
+    TResult? Function(SelectedField? field)? fieldChanged,
+    TResult? Function(String value)? creditCardChanged,
+    TResult? Function(String value)? expirationMonthChanged,
+    TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
+  }) {
+    return nameChanged?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cardAnimated,
+    TResult Function(SelectedField? field)? fieldChanged,
+    TResult Function(String value)? creditCardChanged,
+    TResult Function(String value)? expirationMonthChanged,
+    TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CardAnimated value) cardAnimated,
+    required TResult Function(_FieldChanged value) fieldChanged,
+    required TResult Function(_CreditCardChanged value) creditCardChanged,
+    required TResult Function(_ExpirationMonthChanged value)
+        expirationMonthChanged,
+    required TResult Function(_ExpirationYearChanged value)
+        expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
+  }) {
+    return nameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CardAnimated value)? cardAnimated,
+    TResult? Function(_FieldChanged value)? fieldChanged,
+    TResult? Function(_CreditCardChanged value)? creditCardChanged,
+    TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
+    TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
+  }) {
+    return nameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CardAnimated value)? cardAnimated,
+    TResult Function(_FieldChanged value)? fieldChanged,
+    TResult Function(_CreditCardChanged value)? creditCardChanged,
+    TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
+    TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
+    required TResult orElse(),
+  }) {
+    if (nameChanged != null) {
+      return nameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NameChanged implements CreditCardEvent {
+  const factory _NameChanged({required final String value}) = _$NameChangedImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$NameChangedImplCopyWith<_$NameChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CvvNumberChangedImplCopyWith<$Res> {
+  factory _$$CvvNumberChangedImplCopyWith(_$CvvNumberChangedImpl value,
+          $Res Function(_$CvvNumberChangedImpl) then) =
+      __$$CvvNumberChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$CvvNumberChangedImplCopyWithImpl<$Res>
+    extends _$CreditCardEventCopyWithImpl<$Res, _$CvvNumberChangedImpl>
+    implements _$$CvvNumberChangedImplCopyWith<$Res> {
+  __$$CvvNumberChangedImplCopyWithImpl(_$CvvNumberChangedImpl _value,
+      $Res Function(_$CvvNumberChangedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_$CvvNumberChangedImpl(
+      value: null == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CvvNumberChangedImpl implements _CvvNumberChanged {
+  const _$CvvNumberChangedImpl({required this.value});
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'CreditCardEvent.cvvNumberChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CvvNumberChangedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CvvNumberChangedImplCopyWith<_$CvvNumberChangedImpl> get copyWith =>
+      __$$CvvNumberChangedImplCopyWithImpl<_$CvvNumberChangedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() cardAnimated,
+    required TResult Function(SelectedField? field) fieldChanged,
+    required TResult Function(String value) creditCardChanged,
+    required TResult Function(String value) expirationMonthChanged,
+    required TResult Function(String value) expirationYearChanged,
+    required TResult Function(String value) nameChanged,
+    required TResult Function(String value) cvvNumberChanged,
+  }) {
+    return cvvNumberChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? cardAnimated,
+    TResult? Function(SelectedField? field)? fieldChanged,
+    TResult? Function(String value)? creditCardChanged,
+    TResult? Function(String value)? expirationMonthChanged,
+    TResult? Function(String value)? expirationYearChanged,
+    TResult? Function(String value)? nameChanged,
+    TResult? Function(String value)? cvvNumberChanged,
+  }) {
+    return cvvNumberChanged?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? cardAnimated,
+    TResult Function(SelectedField? field)? fieldChanged,
+    TResult Function(String value)? creditCardChanged,
+    TResult Function(String value)? expirationMonthChanged,
+    TResult Function(String value)? expirationYearChanged,
+    TResult Function(String value)? nameChanged,
+    TResult Function(String value)? cvvNumberChanged,
+    required TResult orElse(),
+  }) {
+    if (cvvNumberChanged != null) {
+      return cvvNumberChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CardAnimated value) cardAnimated,
+    required TResult Function(_FieldChanged value) fieldChanged,
+    required TResult Function(_CreditCardChanged value) creditCardChanged,
+    required TResult Function(_ExpirationMonthChanged value)
+        expirationMonthChanged,
+    required TResult Function(_ExpirationYearChanged value)
+        expirationYearChanged,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_CvvNumberChanged value) cvvNumberChanged,
+  }) {
+    return cvvNumberChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CardAnimated value)? cardAnimated,
+    TResult? Function(_FieldChanged value)? fieldChanged,
+    TResult? Function(_CreditCardChanged value)? creditCardChanged,
+    TResult? Function(_ExpirationMonthChanged value)? expirationMonthChanged,
+    TResult? Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_CvvNumberChanged value)? cvvNumberChanged,
+  }) {
+    return cvvNumberChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CardAnimated value)? cardAnimated,
+    TResult Function(_FieldChanged value)? fieldChanged,
+    TResult Function(_CreditCardChanged value)? creditCardChanged,
+    TResult Function(_ExpirationMonthChanged value)? expirationMonthChanged,
+    TResult Function(_ExpirationYearChanged value)? expirationYearChanged,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_CvvNumberChanged value)? cvvNumberChanged,
+    required TResult orElse(),
+  }) {
+    if (cvvNumberChanged != null) {
+      return cvvNumberChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CvvNumberChanged implements CreditCardEvent {
+  const factory _CvvNumberChanged({required final String value}) =
+      _$CvvNumberChangedImpl;
+
+  String get value;
+  @JsonKey(ignore: true)
+  _$$CvvNumberChangedImplCopyWith<_$CvvNumberChangedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CreditCardState {
   bool get animateCard => throw _privateConstructorUsedError;
   CardSide get cardSide => throw _privateConstructorUsedError;
@@ -846,6 +1250,8 @@ mixin _$CreditCardState {
   String get cardNumber => throw _privateConstructorUsedError;
   String get expirationMonth => throw _privateConstructorUsedError;
   String get expirationYear => throw _privateConstructorUsedError;
+  String get customerName => throw _privateConstructorUsedError;
+  String get cvvNumber => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreditCardStateCopyWith<CreditCardState> get copyWith =>
@@ -864,7 +1270,9 @@ abstract class $CreditCardStateCopyWith<$Res> {
       SelectedField? selectedField,
       String cardNumber,
       String expirationMonth,
-      String expirationYear});
+      String expirationYear,
+      String customerName,
+      String cvvNumber});
 }
 
 /// @nodoc
@@ -886,6 +1294,8 @@ class _$CreditCardStateCopyWithImpl<$Res, $Val extends CreditCardState>
     Object? cardNumber = null,
     Object? expirationMonth = null,
     Object? expirationYear = null,
+    Object? customerName = null,
+    Object? cvvNumber = null,
   }) {
     return _then(_value.copyWith(
       animateCard: null == animateCard
@@ -912,6 +1322,14 @@ class _$CreditCardStateCopyWithImpl<$Res, $Val extends CreditCardState>
           ? _value.expirationYear
           : expirationYear // ignore: cast_nullable_to_non_nullable
               as String,
+      customerName: null == customerName
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      cvvNumber: null == cvvNumber
+          ? _value.cvvNumber
+          : cvvNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -930,7 +1348,9 @@ abstract class _$$CreditCardStateImplCopyWith<$Res>
       SelectedField? selectedField,
       String cardNumber,
       String expirationMonth,
-      String expirationYear});
+      String expirationYear,
+      String customerName,
+      String cvvNumber});
 }
 
 /// @nodoc
@@ -950,6 +1370,8 @@ class __$$CreditCardStateImplCopyWithImpl<$Res>
     Object? cardNumber = null,
     Object? expirationMonth = null,
     Object? expirationYear = null,
+    Object? customerName = null,
+    Object? cvvNumber = null,
   }) {
     return _then(_$CreditCardStateImpl(
       animateCard: null == animateCard
@@ -976,6 +1398,14 @@ class __$$CreditCardStateImplCopyWithImpl<$Res>
           ? _value.expirationYear
           : expirationYear // ignore: cast_nullable_to_non_nullable
               as String,
+      customerName: null == customerName
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      cvvNumber: null == cvvNumber
+          ? _value.cvvNumber
+          : cvvNumber // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -989,7 +1419,9 @@ class _$CreditCardStateImpl implements _CreditCardState {
       this.selectedField,
       this.cardNumber = '0000000000000000',
       this.expirationMonth = '00',
-      this.expirationYear = '00'});
+      this.expirationYear = '00',
+      this.customerName = '',
+      this.cvvNumber = '000'});
 
   @override
   @JsonKey()
@@ -1008,10 +1440,16 @@ class _$CreditCardStateImpl implements _CreditCardState {
   @override
   @JsonKey()
   final String expirationYear;
+  @override
+  @JsonKey()
+  final String customerName;
+  @override
+  @JsonKey()
+  final String cvvNumber;
 
   @override
   String toString() {
-    return 'CreditCardState(animateCard: $animateCard, cardSide: $cardSide, selectedField: $selectedField, cardNumber: $cardNumber, expirationMonth: $expirationMonth, expirationYear: $expirationYear)';
+    return 'CreditCardState(animateCard: $animateCard, cardSide: $cardSide, selectedField: $selectedField, cardNumber: $cardNumber, expirationMonth: $expirationMonth, expirationYear: $expirationYear, customerName: $customerName, cvvNumber: $cvvNumber)';
   }
 
   @override
@@ -1030,12 +1468,24 @@ class _$CreditCardStateImpl implements _CreditCardState {
             (identical(other.expirationMonth, expirationMonth) ||
                 other.expirationMonth == expirationMonth) &&
             (identical(other.expirationYear, expirationYear) ||
-                other.expirationYear == expirationYear));
+                other.expirationYear == expirationYear) &&
+            (identical(other.customerName, customerName) ||
+                other.customerName == customerName) &&
+            (identical(other.cvvNumber, cvvNumber) ||
+                other.cvvNumber == cvvNumber));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, animateCard, cardSide,
-      selectedField, cardNumber, expirationMonth, expirationYear);
+  int get hashCode => Object.hash(
+      runtimeType,
+      animateCard,
+      cardSide,
+      selectedField,
+      cardNumber,
+      expirationMonth,
+      expirationYear,
+      customerName,
+      cvvNumber);
 
   @JsonKey(ignore: true)
   @override
@@ -1052,7 +1502,9 @@ abstract class _CreditCardState implements CreditCardState {
       final SelectedField? selectedField,
       final String cardNumber,
       final String expirationMonth,
-      final String expirationYear}) = _$CreditCardStateImpl;
+      final String expirationYear,
+      final String customerName,
+      final String cvvNumber}) = _$CreditCardStateImpl;
 
   @override
   bool get animateCard;
@@ -1066,6 +1518,10 @@ abstract class _CreditCardState implements CreditCardState {
   String get expirationMonth;
   @override
   String get expirationYear;
+  @override
+  String get customerName;
+  @override
+  String get cvvNumber;
   @override
   @JsonKey(ignore: true)
   _$$CreditCardStateImplCopyWith<_$CreditCardStateImpl> get copyWith =>

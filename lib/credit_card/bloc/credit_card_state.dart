@@ -20,5 +20,7 @@ class CreditCardState with _$CreditCardState {
     @Default('0000000000000000') String cardNumber,
     @Default('00') String expirationMonth,
     @Default('00') String expirationYear,
+    @Default('') String customerName,
+    @Default('000') String cvvNumber,
   }) = _CreditCardState;
 }

@@ -12,6 +12,7 @@ class CreditCardFront extends StatelessWidget {
     var expireDate = '00/00';
     var oldCardNumber = '0000000000000000';
     var oldExpirationDate = '00/00';
+
     return BlocBuilder<CreditCardBloc, CreditCardState>(
       buildWhen: (p, c) {
         if (p.cardNumber != c.cardNumber) {
@@ -27,7 +28,8 @@ class CreditCardFront extends StatelessWidget {
           return true;
         }
 
-        return p.selectedField != c.selectedField;
+        return p.selectedField != c.selectedField ||
+            p.customerName != c.customerName;
       },
       builder: (context, state) {
         expireDate = '${state.expirationMonth}/${state.expirationYear}';
@@ -73,6 +75,7 @@ class CreditCardFront extends StatelessWidget {
                   Assets.pngs.cardChip.image(width: 40),
                   Row(
                     children: [
+                      const Text(' '),
                       ...List.generate(cardNumber.length + 4, (index) {
                         if (index == 0) {
                           spacesAdded++;
@@ -128,12 +131,25 @@ class CreditCardFront extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        ' ARTURO ESPINOSA GOMEZ',
-                        style: kMetallicTextStyle.copyWith(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 14,
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(' '),
+                          ...List.generate(
+                            state.customerName.length,
+                            (index) {
+                              return AnimatedLetter(
+                                value: state.customerName[index].toUpperCase(),
+                                oldValue: '',
+                                isHorizontalAnimation: true,
+                                textStyle: kMetallicTextStyle.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 14,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                       Assets.pngs.visaWhite.image(height: 26),
                     ],

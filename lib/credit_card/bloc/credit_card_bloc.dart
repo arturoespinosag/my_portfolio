@@ -13,6 +13,8 @@ class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
     on<_CreditCardChanged>(_onCreditCardChanged);
     on<_ExpirationMonthChanged>(_onExpirationMonthChanged);
     on<_ExpirationYearChanged>(_onExpirationYearChanged);
+    on<_NameChanged>(_onNameChanged);
+    on<_CvvNumberChanged>(_onCvvNameChanged);
   }
 
   void _onCardAnimated(_CardAnimated event, Emitter<CreditCardState> emit) {
@@ -74,5 +76,21 @@ class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
         expirationYear: expirationYear,
       ),
     );
+  }
+
+  void _onNameChanged(_NameChanged event, Emitter<CreditCardState> emit) {
+    emit(
+      state.copyWith(
+        customerName: event.value,
+      ),
+    );
+  }
+
+  void _onCvvNameChanged(
+    _CvvNumberChanged event,
+    Emitter<CreditCardState> emit,
+  ) {
+    final cvvNumber = event.value.padRight(3, '0');
+    emit(state.copyWith(cvvNumber: cvvNumber));
   }
 }
