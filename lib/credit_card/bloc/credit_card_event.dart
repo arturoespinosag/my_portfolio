@@ -6,4 +6,6 @@ class CreditCardEvent with _$CreditCardEvent {
   const factory CreditCardEvent.fieldChanged({
     SelectedField? field,
   }) = _FieldChanged;
+  const factory CreditCardEvent.creditCardChanged({required String value}) =
+      _CreditCardChanged;
 }

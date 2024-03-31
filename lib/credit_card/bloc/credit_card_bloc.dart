@@ -9,6 +9,7 @@ class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
   CreditCardBloc() : super(const CreditCardState()) {
     on<_CardAnimated>(_onCardAnimated);
     on<_FieldChanged>(_onFieldChanged);
+    on<_CreditCardChanged>(_onCreditCardChanged);
   }
 
   void _onCardAnimated(_CardAnimated event, Emitter<CreditCardState> emit) {
@@ -30,6 +31,23 @@ class CreditCardBloc extends Bloc<CreditCardEvent, CreditCardState> {
     emit(
       state.copyWith(
         selectedField: event.field,
+      ),
+    );
+  }
+
+  void _onCreditCardChanged(
+    _CreditCardChanged event,
+    Emitter<CreditCardState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        oldCardNumber: state.cardNumber,
+      ),
+    );
+    final cardNumber = event.value.padRight(16, '0');
+    emit(
+      state.copyWith(
+        cardNumber: cardNumber,
       ),
     );
   }

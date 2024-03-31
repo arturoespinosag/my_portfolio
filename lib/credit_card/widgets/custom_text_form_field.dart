@@ -8,12 +8,16 @@ class CustomTextFormField extends StatelessWidget {
     this.inputFormatters,
     this.keyboardType,
     this.maxLength,
+    this.controller,
+    this.onChanged,
   });
 
   final FocusNode? focusNode;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
   final int? maxLength;
+  final TextEditingController? controller;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +26,8 @@ class CustomTextFormField extends StatelessWidget {
       elevation: 10,
       shadowColor: Colors.black45,
       child: TextFormField(
+        onChanged: onChanged,
+        controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
         maxLength: maxLength,

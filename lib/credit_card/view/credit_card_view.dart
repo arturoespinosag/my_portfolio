@@ -17,6 +17,7 @@ class _CreditCardViewState extends State<CreditCardView> {
   late FocusNode _cardFocusNode;
   late FocusNode _nameFocusNode;
   late FocusNode _expireDateFocusNode;
+  late TextEditingController _cardController;
 
   @override
   void initState() {
@@ -24,6 +25,7 @@ class _CreditCardViewState extends State<CreditCardView> {
     _cardFocusNode = FocusNode()..addListener(_onCardFocusChange);
     _nameFocusNode = FocusNode()..addListener(_onNameFocusChange);
     _expireDateFocusNode = FocusNode()..addListener(_onExpireDateFocusChange);
+    _cardController = TextEditingController();
     super.initState();
   }
 
@@ -32,6 +34,10 @@ class _CreditCardViewState extends State<CreditCardView> {
     _cvvFocusNode
       ..removeListener(_onCvvFocusChange)
       ..dispose();
+    _cardFocusNode.removeListener(_onCardFocusChange);
+    _nameFocusNode.removeListener(_onNameFocusChange);
+    _expireDateFocusNode.removeListener(_onExpireDateFocusChange);
+    _cardController.dispose();
 
     super.dispose();
   }
@@ -123,7 +129,15 @@ class _CreditCardViewState extends State<CreditCardView> {
                       children: [
                         const Text('Card number'),
                         CustomTextFormField(
+                          controller: _cardController,
                           focusNode: _cardFocusNode,
+                          onChanged: (value) {
+                            context.read<CreditCardBloc>().add(
+                                  CreditCardEvent.creditCardChanged(
+                                    value: value,
+                                  ),
+                                );
+                          },
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                           ],

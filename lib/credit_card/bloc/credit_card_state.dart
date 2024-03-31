@@ -17,5 +17,7 @@ class CreditCardState with _$CreditCardState {
     @Default(false) bool animateCard,
     @Default(CardSide.front) CardSide cardSide,
     SelectedField? selectedField,
+    @Default('0000000000000000') String cardNumber,
+    @Default('0000000000000000') String oldCardNumber,
   }) = _CreditCardState;
 }

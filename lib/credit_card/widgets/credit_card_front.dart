@@ -9,12 +9,15 @@ class CreditCardFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<CreditCardBloc, CreditCardState, SelectedField?>(
-      selector: (state) {
-        return state.selectedField;
-      },
-      builder: (context, selectedField) {
-        final params = _getPositionedParams(selectedField);
+    return BlocBuilder<CreditCardBloc, CreditCardState>(
+      buildWhen: (previous, current) =>
+          previous.selectedField != current.selectedField ||
+          previous.cardNumber != current.cardNumber,
+      builder: (context, state) {
+        final params = _getPositionedParams(state.selectedField);
+        final cardNumber = state.cardNumber;
+        final oldCardNumber = state.oldCardNumber;
+        var spacesAdded = 0;
         return Padding(
           padding: const EdgeInsets.all(25),
           child: Stack(
@@ -51,9 +54,27 @@ class CreditCardFront extends StatelessWidget {
                     ),
                   ),
                   Assets.pngs.cardChip.image(width: 40),
-                  const Text(
-                    ' 0000   0000   0000   0000',
-                    style: kMetallicTextStyle,
+                  Row(
+                    children: [
+                      ...List.generate(cardNumber.length + 4, (index) {
+                        if (index == 0) {
+                          spacesAdded++;
+                          return const Text(' ');
+                        }
+                        if (index == 5 || index == 10 || index == 15) {
+                          spacesAdded++;
+                          return const Text('    ');
+                        }
+                        // return Text(
+                        //   cardNumber[index - spacesAdded],
+                        //   style: kMetallicTextStyle,
+                        // );
+                        return AnimatedLetter(
+                          value: cardNumber[index - spacesAdded],
+                          oldValue: oldCardNumber[index - spacesAdded],
+                        );
+                      }),
+                    ],
                   ),
                   Row(
                     mainAxisSize: MainAxisSize.min,
