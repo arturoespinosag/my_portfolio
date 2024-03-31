@@ -9,14 +9,31 @@ class CreditCardFront extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var expireDate = '00/00';
+    var oldCardNumber = '0000000000000000';
+    var oldExpirationDate = '00/00';
     return BlocBuilder<CreditCardBloc, CreditCardState>(
-      buildWhen: (previous, current) =>
-          previous.selectedField != current.selectedField ||
-          previous.cardNumber != current.cardNumber,
+      buildWhen: (p, c) {
+        if (p.cardNumber != c.cardNumber) {
+          oldCardNumber = p.cardNumber;
+          return true;
+        }
+        if (p.expirationMonth != c.expirationMonth) {
+          oldExpirationDate = '${p.expirationMonth}/${c.expirationYear}';
+          return true;
+        }
+        if (p.expirationYear != c.expirationYear) {
+          oldExpirationDate = '${c.expirationMonth}/${p.expirationYear}';
+          return true;
+        }
+
+        return p.selectedField != c.selectedField;
+      },
       builder: (context, state) {
+        expireDate = '${state.expirationMonth}/${state.expirationYear}';
         final params = _getPositionedParams(state.selectedField);
         final cardNumber = state.cardNumber;
-        final oldCardNumber = state.oldCardNumber;
+
         var spacesAdded = 0;
         return Padding(
           padding: const EdgeInsets.all(25),
@@ -65,10 +82,7 @@ class CreditCardFront extends StatelessWidget {
                           spacesAdded++;
                           return const Text('    ');
                         }
-                        // return Text(
-                        //   cardNumber[index - spacesAdded],
-                        //   style: kMetallicTextStyle,
-                        // );
+
                         return AnimatedLetter(
                           value: cardNumber[index - spacesAdded],
                           oldValue: oldCardNumber[index - spacesAdded],
@@ -91,11 +105,17 @@ class CreditCardFront extends StatelessWidget {
                           const SizedBox(
                             width: 5,
                           ),
-                          Text(
-                            '00/00',
-                            style: kMetallicTextStyle.copyWith(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 14,
+                          Row(
+                            children: List.generate(
+                              expireDate.length,
+                              (index) => AnimatedLetter(
+                                value: expireDate[index],
+                                oldValue: oldExpirationDate[index],
+                                textStyle: kMetallicTextStyle.copyWith(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: 14,
+                                ),
+                              ),
                             ),
                           ),
                         ],

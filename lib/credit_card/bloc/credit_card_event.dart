@@ -8,4 +8,9 @@ class CreditCardEvent with _$CreditCardEvent {
   }) = _FieldChanged;
   const factory CreditCardEvent.creditCardChanged({required String value}) =
       _CreditCardChanged;
+  const factory CreditCardEvent.expirationMonthChanged({
+    required String value,
+  }) = _ExpirationMonthChanged;
+  const factory CreditCardEvent.expirationYearChanged({required String value}) =
+      _ExpirationYearChanged;
 }

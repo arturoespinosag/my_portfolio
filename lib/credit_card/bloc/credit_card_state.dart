@@ -18,6 +18,7 @@ class CreditCardState with _$CreditCardState {
     @Default(CardSide.front) CardSide cardSide,
     SelectedField? selectedField,
     @Default('0000000000000000') String cardNumber,
-    @Default('0000000000000000') String oldCardNumber,
+    @Default('00') String expirationMonth,
+    @Default('00') String expirationYear,
   }) = _CreditCardState;
 }

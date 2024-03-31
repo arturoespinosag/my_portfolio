@@ -5,11 +5,13 @@ class AnimatedLetter extends StatefulWidget {
   const AnimatedLetter({
     required this.value,
     required this.oldValue,
+    this.textStyle = kMetallicTextStyle,
     super.key,
   });
 
   final String value;
   final String oldValue;
+  final TextStyle textStyle;
 
   @override
   State<AnimatedLetter> createState() => _AnimatedLetterState();
@@ -32,7 +34,7 @@ class _AnimatedLetterState extends State<AnimatedLetter> {
                   offset: Offset(0, 10 * tween),
                   child: Text(
                     widget.oldValue,
-                    style: kMetallicTextStyle,
+                    style: widget.textStyle,
                   ),
                 ),
               ),
@@ -42,7 +44,7 @@ class _AnimatedLetterState extends State<AnimatedLetter> {
                   offset: Offset(0, -10 * (1 - tween)),
                   child: Text(
                     widget.value,
-                    style: kMetallicTextStyle,
+                    style: widget.textStyle,
                   ),
                 ),
               ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomDropDown<T> extends StatelessWidget {
-  const CustomDropDown({required this.items, this.focusNode, super.key});
+  const CustomDropDown({
+    required this.items,
+    this.focusNode,
+    super.key,
+    this.onChanged,
+  });
 
   final List<T> items;
   final FocusNode? focusNode;
+  final void Function(T?)? onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class CustomDropDown<T> extends StatelessWidget {
                 ),
               )
               .toList(),
-          onChanged: (value) {},
+          onChanged: onChanged,
         ),
       ),
     );

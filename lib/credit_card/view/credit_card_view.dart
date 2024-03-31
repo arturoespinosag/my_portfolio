@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/constants.dart';
+
 import 'package:portfolio/credit_card/credit_card.dart';
 
 class CreditCardView extends StatefulWidget {
@@ -82,7 +83,7 @@ class _CreditCardViewState extends State<CreditCardView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    final years = List.generate(5, (index) => 2024 + index);
+    final years = List.generate(5, (index) => (2024 + index).toString());
     final hPadding = (kIsWeb ? size.width * 0.22 : 25).toDouble();
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.5),
@@ -163,11 +164,26 @@ class _CreditCardViewState extends State<CreditCardView> {
                                       CustomDropDown(
                                         items: months,
                                         focusNode: _expireDateFocusNode,
+                                        onChanged: (value) {
+                                          context.read<CreditCardBloc>().add(
+                                                CreditCardEvent
+                                                    .expirationMonthChanged(
+                                                  value: value ?? 'January',
+                                                ),
+                                              );
+                                        },
                                       ),
                                       const SizedBox(width: 8),
                                       CustomDropDown(
                                         items: years,
                                         focusNode: _expireDateFocusNode,
+                                        onChanged: (value) =>
+                                            context.read<CreditCardBloc>().add(
+                                                  CreditCardEvent
+                                                      .expirationYearChanged(
+                                                    value: value ?? '2024',
+                                                  ),
+                                                ),
                                       ),
                                     ],
                                   ),
