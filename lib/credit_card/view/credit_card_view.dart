@@ -168,6 +168,7 @@ class _CreditCardViewState extends State<CreditCardView> {
                                     children: [
                                       CustomDropDown(
                                         items: months,
+                                        hintText: 'Month',
                                         focusNode: _expireDateFocusNode,
                                         onChanged: (value) {
                                           context.read<CreditCardBloc>().add(
@@ -181,6 +182,7 @@ class _CreditCardViewState extends State<CreditCardView> {
                                       const SizedBox(width: 8),
                                       CustomDropDown(
                                         items: years,
+                                        hintText: 'Year',
                                         focusNode: _expireDateFocusNode,
                                         onChanged: (value) =>
                                             context.read<CreditCardBloc>().add(

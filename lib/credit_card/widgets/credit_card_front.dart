@@ -35,6 +35,7 @@ class CreditCardFront extends StatelessWidget {
         expireDate = '${state.expirationMonth}/${state.expirationYear}';
         final params = _getPositionedParams(state.selectedField);
         final cardNumber = state.cardNumber;
+        const duration = Duration(milliseconds: 300);
 
         var spacesAdded = 0;
         return Padding(
@@ -44,10 +45,11 @@ class CreditCardFront extends StatelessWidget {
               AnimatedPositioned(
                 top: params?.top,
                 left: params?.left,
-                duration: const Duration(milliseconds: 300),
-                child: Container(
-                  height: params?.height,
-                  width: params?.width,
+                duration: duration,
+                child: AnimatedContainer(
+                  duration: params == null ? Duration.zero : duration,
+                  height: params?.height ?? 0,
+                  width: params?.width ?? 0,
                   decoration: BoxDecoration(
                     color: params != null
                         ? Colors.black.withOpacity(0.2)
