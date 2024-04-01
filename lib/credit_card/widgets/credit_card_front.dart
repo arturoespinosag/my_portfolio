@@ -78,12 +78,8 @@ class CreditCardFront extends StatelessWidget {
                   Row(
                     children: [
                       const Text(' '),
-                      ...List.generate(cardNumber.length + 4, (index) {
-                        if (index == 0) {
-                          spacesAdded++;
-                          return const Text(' ');
-                        }
-                        if (index == 5 || index == 10 || index == 15) {
+                      ...List.generate(cardNumber.length + 3, (index) {
+                        if (index == 4 || index == 9 || index == 14) {
                           spacesAdded++;
                           return const Text('    ');
                         }

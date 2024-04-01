@@ -87,151 +87,155 @@ class _CreditCardViewState extends State<CreditCardView> {
     final hPadding = (kIsWeb ? size.width * 0.22 : 25).toDouble();
     return Scaffold(
       backgroundColor: Colors.grey.withOpacity(0.5),
-      appBar: AppBar(title: const Text('Credit card')),
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Container(
-              margin: EdgeInsets.only(
-                top: size.height * 0.14,
-                left: hPadding,
-                right: hPadding,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: const [
-                  BoxShadow(
-                    blurRadius: 15,
-                    spreadRadius: 10,
-                    color: Colors.black12,
-                  ),
-                ],
-              ),
-              height: 500,
-              width: 600,
-            ),
-          ),
-          Positioned.fill(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const CreditCardWidget(),
-                  Container(
-                    padding: EdgeInsets.only(
-                      top: 20,
-                      left: hPadding + 20,
-                      right: hPadding + 20,
-                      bottom: 20,
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Container(
+                margin: EdgeInsets.only(
+                  top: size.height * 0.14,
+                  left: hPadding,
+                  right: hPadding,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: const [
+                    BoxShadow(
+                      blurRadius: 15,
+                      spreadRadius: 10,
+                      color: Colors.black12,
                     ),
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text('Card number'),
-                        CustomTextFormField(
-                          controller: _cardController,
-                          focusNode: _cardFocusNode,
-                          onChanged: (value) {
-                            context.read<CreditCardBloc>().add(
-                                  CreditCardEvent.creditCardChanged(
-                                    value: value,
-                                  ),
-                                );
-                          },
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                          ],
-                          keyboardType: TextInputType.number,
-                          maxLength: 16,
-                        ),
-                        const SizedBox(height: 20),
-                        const Text('Account holder'),
-                        CustomTextFormField(
-                          focusNode: _nameFocusNode,
-                          onChanged: (name) =>
+                  ],
+                ),
+                height: 500,
+                width: 600,
+              ),
+            ),
+            Positioned.fill(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const CreditCardWidget(),
+                    Container(
+                      padding: EdgeInsets.only(
+                        top: 20,
+                        left: hPadding + 20,
+                        right: hPadding + 20,
+                        bottom: 20,
+                      ),
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text('Card number'),
+                          CustomTextFormField(
+                            controller: _cardController,
+                            focusNode: _cardFocusNode,
+                            onChanged: (value) {
                               context.read<CreditCardBloc>().add(
-                                    CreditCardEvent.nameChanged(value: name),
-                                  ),
-                          maxLength: 21,
-                        ),
-                        const SizedBox(height: 20),
-                        Row(
-                          children: [
-                            Expanded(
-                              flex: kIsWeb ? 2 : 4,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Expiration date'),
-                                  Row(
-                                    children: [
-                                      CustomDropDown(
-                                        items: months,
-                                        hintText: 'Month',
-                                        focusNode: _expireDateFocusNode,
-                                        onChanged: (value) {
-                                          context.read<CreditCardBloc>().add(
-                                                CreditCardEvent
-                                                    .expirationMonthChanged(
-                                                  value: value ?? 'January',
-                                                ),
-                                              );
-                                        },
-                                      ),
-                                      const SizedBox(width: 8),
-                                      CustomDropDown(
-                                        items: years,
-                                        hintText: 'Year',
-                                        focusNode: _expireDateFocusNode,
-                                        onChanged: (value) =>
+                                    CreditCardEvent.creditCardChanged(
+                                      value: value,
+                                    ),
+                                  );
+                            },
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                  RegExp('[0-9]')),
+                            ],
+                            keyboardType: TextInputType.number,
+                            maxLength: 16,
+                          ),
+                          const SizedBox(height: 20),
+                          const Text('Account holder'),
+                          CustomTextFormField(
+                            focusNode: _nameFocusNode,
+                            onChanged: (name) =>
+                                context.read<CreditCardBloc>().add(
+                                      CreditCardEvent.nameChanged(value: name),
+                                    ),
+                            maxLength: 21,
+                          ),
+                          const SizedBox(height: 20),
+                          Row(
+                            children: [
+                              Expanded(
+                                flex: kIsWeb ? 2 : 4,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text('Expiration date'),
+                                    Row(
+                                      children: [
+                                        CustomDropDown(
+                                          items: months,
+                                          hintText: 'Month',
+                                          focusNode: _expireDateFocusNode,
+                                          onChanged: (value) {
                                             context.read<CreditCardBloc>().add(
                                                   CreditCardEvent
-                                                      .expirationYearChanged(
-                                                    value: value ?? '2024',
+                                                      .expirationMonthChanged(
+                                                    value: value ?? 'January',
                                                   ),
+                                                );
+                                          },
+                                        ),
+                                        const SizedBox(width: 8),
+                                        CustomDropDown(
+                                          items: years,
+                                          hintText: 'Year',
+                                          focusNode: _expireDateFocusNode,
+                                          onChanged: (value) => context
+                                              .read<CreditCardBloc>()
+                                              .add(
+                                                CreditCardEvent
+                                                    .expirationYearChanged(
+                                                  value: value ?? '2024',
                                                 ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('CVV'),
-                                  CustomTextFormField(
-                                    focusNode: _cvvFocusNode,
-                                    onChanged: (cvv) =>
-                                        context.read<CreditCardBloc>().add(
-                                              CreditCardEvent.cvvNumberChanged(
-                                                value: cvv,
                                               ),
-                                            ),
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                        RegExp('[0-9]'),
-                                      ),
-                                    ],
-                                    maxLength: 3,
-                                    keyboardType: TextInputType.number,
-                                  ),
-                                ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text('CVV'),
+                                    CustomTextFormField(
+                                      focusNode: _cvvFocusNode,
+                                      onChanged: (cvv) => context
+                                          .read<CreditCardBloc>()
+                                          .add(
+                                            CreditCardEvent.cvvNumberChanged(
+                                              value: cvv,
+                                            ),
+                                          ),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.allow(
+                                          RegExp('[0-9]'),
+                                        ),
+                                      ],
+                                      maxLength: 3,
+                                      keyboardType: TextInputType.number,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

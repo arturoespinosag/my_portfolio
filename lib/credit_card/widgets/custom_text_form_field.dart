@@ -31,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
         focusNode: focusNode,
         keyboardType: keyboardType,
         maxLength: maxLength,
+        enableSuggestions: false,
         buildCounter: (
           _, {
           required currentLength,
